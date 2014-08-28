@@ -10,7 +10,7 @@ RUN wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key a
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y jenkins && apt-get clean
 
-# Install docker
+# Install docker, but don't run
 RUN curl -sSL -O https://get.docker.io/builds/Linux/x86_64/docker-1.1.2 && \
   chmod +x docker-1.1.2 && \
   mv docker-1.1.2 /usr/local/bin/docker
