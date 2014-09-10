@@ -15,10 +15,6 @@ RUN curl -sSL -O https://get.docker.io/builds/Linux/x86_64/docker-1.1.2 && \
   chmod +x docker-1.1.2 && \
   mv docker-1.1.2 /usr/local/bin/docker
 
-# Install ansible
-RUN apt-get -y install python-pip python-dev
-RUN pip install git+git://github.com/bluelabsio/ansible.git@patch1.7.1
-
 # Install sbt
 RUN wget http://dl.bintray.com/sbt/debian/sbt-0.13.5.deb && dpkg -i sbt-0.13.5.deb
 
