@@ -23,10 +23,11 @@ if find $DATA/plugins -maxdepth 0 -empty | read v; then
     (cd $DATA/plugins && wget --no-check-certificate $PLUGINS_ENDPOINT/github-sqs-plugin.hpi)
 fi
 
+groupadd docker || echo "docker already exists"
+usermod -a -G docker jenkins || echo "docker already part of group"
+
 ln -sf /var/run/outer-docker.sock /var/run/docker.sock
-groupadd docker
 chgrp docker /var/run/outer-docker.sock
-usermod -a -G docker jenkins
 
 chown -R jenkins $DATA
 
